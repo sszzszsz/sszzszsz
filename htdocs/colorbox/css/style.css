@@ -1,0 +1,261 @@
+/*------------------------------
+colorbox
+------------------------------*/
+/*Colorbox Core Style:*/
+#colorbox, #cboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 9999;
+}
+
+#cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 9999;
+}
+
+#cboxOverlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+  clear: left;
+}
+
+#cboxContent {
+  position: relative;
+}
+
+#cboxLoadedContent {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#cboxTitle {
+  margin: 0;
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+  cursor: pointer;
+}
+
+.cboxPhoto {
+  display: block;
+  border: 0;
+  float: left;
+  -ms-interpolation-mode: bicubic;
+  margin: auto;
+  max-width: none;
+}
+
+.cboxIframe {
+  display: block;
+  border: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/*User Style:example1*/
+#cboxOverlay {
+  background: #000000;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+  z-index: 100;
+}
+
+#colorbox {
+  outline: 0;
+  z-index: 200;
+}
+
+#cboxContent {
+  background: #ffffff;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.cboxIframe {
+  background: #ffffff;
+}
+
+#cboxError {
+  border: 1px solid #cccccc;
+  padding: 50px;
+}
+
+#cboxLoadedContent {
+  margin-bottom: 40px;
+}
+
+#cboxTitle {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: #000000;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+}
+
+#cboxCurrent {
+  position: absolute;
+  bottom: 4px;
+  left: 10px;
+  color: #949494;
+}
+
+#cboxLoadingOverlay {
+  background: url(../example1/images/loading_background.png) no-repeat center center;
+}
+
+#cboxLoadingGraphic {
+  background: url(../example1/images/loading.gif) no-repeat center center;
+}
+
+/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+  background: none;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  width: auto;
+}
+
+/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+  outline: 0;
+}
+
+#cboxSlideshow {
+  position: absolute;
+  right: 30px;
+  bottom: 4px;
+  color: #0092ef;
+}
+
+#cboxPrevious {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #9a9a9a;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 30px;
+  height: 50px;
+  margin: auto;
+  opacity: 0.8;
+  text-indent: 0;
+  width: 50px;
+}
+
+#cboxPrevious:hover {
+  background-position: -75px -25px;
+}
+
+#cboxNext {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #9a9a9a;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 30px;
+  height: 50px;
+  margin: auto;
+  opacity: 0.8;
+  text-indent: 0;
+  width: 50px;
+}
+
+#cboxNext:hover {
+  background-position: -50px -25px;
+}
+
+#cboxClose {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: url(../example1/images/controls.png) no-repeat -25px 0;
+  height: 25px;
+  text-indent: -9999px;
+  width: 25px;
+}
+
+#cboxClose:hover {
+  background-position: -25px -25px;
+}
+
+/*exsample*/
+#example1 {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+#example1 .example1 {
+  display: block;
+  text-align: center;
+}
+
+#example1 .example1 img {
+  text-align: center;
+}
+
+#example1-2 {
+  display: table;
+  margin-top: 30px;
+  width: 100%;
+}
+
+#example1-2 .gallery {
+  display: table-cell;
+  padding-right: 10px;
+}
+
+#example1-2 .gallery img {
+  height: auto;
+  width: 100%;
+}
+
+#example2 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.example2 #cboxOverlay {
+  background: #000000;
+  opacity: 0.5;
+}
+
+/*--- sp ---*/
+@media screen and (max-width: 768px) {
+  #example1 .example1 img, #example2 img {
+    width: 100%;
+  }
+}

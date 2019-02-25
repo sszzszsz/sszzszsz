@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="../common/css/base.css">
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="../common/css/parts.css">
+<script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery.colorbox-min.js"></script>
+<title>colorbox</title>
+
+<script>
+$(function() {
+$(".example1").colorbox({
+maxWidth:"90%",
+maxHeight:"90%",
+opacity: 0.7,
+});
+});
+
+$(function() {
+$(".gallery").colorbox({
+rel:'slideshow',
+slideshow:true,
+slideshowSpeed:3000,
+maxWidth:"90%",
+maxHeight:"90%",
+opacity: 0.7,
+previous: "＜",
+next: "＞",
+current: "{current} / {total}",
+slideshowStart: "START",
+slideshowStop: "STOP"
+});
+});
+
+$(function() {
+$(".example2").colorbox({
+maxWidth:"90%",
+maxHeight:"90%",
+opacity: 0.7
+});
+});
+
+
+$(function() {
+ function ifraneHeight(){
+   var wW = $(window).width();
+   if(wW<768){
+     var wH=$ (window).height();
+     var iframeH=(wH)/2; 
+   }else{
+     return 500;
+   }
+   return iframeH;
+ }
+ 
+ $(".iframe").colorbox({
+   iframe:true,
+   width:"80%",
+   opacity: 0.7,
+   
+   onComplete:function(){
+     var height = ifraneHeight();
+     $('#colorbox').css('height',height+40+'px');
+     $('#cboxWrapper').css('height',height+40+'px');
+     $("#cboxMiddleLeft").css('height',height+'px');
+     $('#cboxContent').css('height',height+'px');
+     $("#cboxLoadedContent").css('height',height+'px');
+     $("#cboxLoadedContent iframe").css('height',height+'px');
+     $("#cboxMiddleRight").css('height',height+'px');
+   }
+  });
+});
+ 
+$(function() {
+$(".iframe2").colorbox({
+iframe:true,
+width:"80%",
+height:"80%",
+opacity: 0.7
+});
+}); 
+
+</script>
+</head>
+
+<body>
+<h1 class="ttlLv1">colorbox サンプル集1</h1>
+<section class="wrapper">
+<div class="content">
+<p>colorboxをダウンロードするとサンプルが5つ付いてくる。<br>ひとまずなにもカスタムせずに使うとモーダルはこんな感じに設定される。（これはcolorboxに入ってた「example1」のcssを使用）</p>
+<ul class="linkList">
+<li><a href="http://www.jacklmoore.com/colorbox/" target="_blank">公式ダウンロード先</a></li>
+</ul>
+<div id="example1">
+<a class="example1" href="../img/daisy.jpg" title="画像単体タイトル">
+<img src="../img/daisy.jpg" alt="">
+</a>
+</div>
+
+<h2 class="ttlLv2">モーダルでスライドショーを設定。</h2>
+<p>モダール内では自動再生する。最後まで行ったあと、一番最初に戻る。</p>
+<div id="example1-2">
+<a class="gallery" href="../img/pic01.jpg" title="蓮">
+<img src="../img/pic01.jpg" alt="蓮">
+</a>
+<a class="gallery" href="../img/pic02.jpg" title="ひまわり">
+<img src="../img/pic02.jpg" alt="ひまわり">
+</a>
+<a class="gallery" href="../img/pic03.jpg" title="チューリップ">
+<img src="../img/pic03.jpg" alt="チューリップ">
+</a>
+<a class="gallery" href="../img/pic04.jpg" title="あじさい">
+<img src="../img/pic04.jpg" alt="あじさい">
+</a>
+</div>
+
+
+<div id="example2">
+<a class="example2" href="../img/daisy.jpg" title="画像単体タイトル">
+<img src="../img/daisy.jpg" alt="">
+</a>
+</div>
+
+<div class="mgt50">
+<h2 class"ttlLv2">Iframeをうめこんでみる。</h2>
+<ul class="linkList">
+<li><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.299748097325!2d139.7618332155703!3d35.66962063821541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bef472c0001%3A0xcfcb0363f18109fc!2sGINZA+SIX!5e0!3m2!1sja!2sjp!4v1528866640800" class="iframe">Google MAP</a></li>
+<li><a href="https://daneden.github.io/animate.css/?utm_campaign=content-curation&utm_medium=website&utm_source=angular-js.in" class="iframe">animate css</a></li>
+</ul>
+</div>
+<p class="mgt10">下記参考サイト</p>
+<ul class="linkList mgt0">
+<li><a href="http://cly7796.net/wp/javascript/plugin-jquery-colorbox/" target="_blank">jquery.colorbox.jsの使い方まとめ</a></li>
+</ul>
+
+<p class="mgt30">iframeのレスポンシブ対応がめちゃくちゃによくわからない。。下の二つは普通に埋め込んでPC・SP両方とも同じ高さ指定したもの。<br>PCのときは問題ないが、SPの時高さが出すぎてモーダルが気持ち悪いことになってる。。<br>上二つは頑張ってJS書いたが、それゆえリサイズに対応しなくなった。。</p>
+<div class="mgt10">
+<ul class="linkList">
+<li><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.299748097325!2d139.7618332155703!3d35.66962063821541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bef472c0001%3A0xcfcb0363f18109fc!2sGINZA+SIX!5e0!3m2!1sja!2sjp!4v1528866640800" class="iframe2">Google MAP</a></li>
+<li><a href="https://daneden.github.io/animate.css/?utm_campaign=content-curation&utm_medium=website&utm_source=angular-js.in" class="iframe2">animate css</a></li>
+</ul>
+<p class="mgt10">下記参考サイト</p>
+<ul class="linkList mgt0">
+<li><a href="https://highmoon-miyabi.com/blog/2013/05/30_000338.html" target="_blank">colorboxでiframeを可変にする方法</a></li>
+</ul>
+</div>
+<!--#include virtual="../common/inc/footer.html" -->
+</div>
+</section>
+</body>
+</html>
