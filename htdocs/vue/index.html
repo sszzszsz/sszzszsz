@@ -10,22 +10,26 @@
   <link rel="stylesheet" href="../common/css/base.css">
   <link rel="stylesheet" href="../common/css/common.css">
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
-  <!-- Vue.js を読み込む -->
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script type="text/javascript" src="js/test.js"></script>
+  <script src="../common/js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
 
   <div class="wrapper">
-    <div id="app-1">
-      <p>{{ message }}</p> <!-- {{ message }} が Vueデータに置換される -->
-      <div v-text="message"></div>
-    </div>
+  
+    <div id="app-1">{{ message }}</div> <!-- {{ message }} が Vueデータに置換される -->
+    <script>
+      var app1 = new Vue({
+        el: '#app-1',
+        /* #app-1 要素に対して Vue を適用する */
+        data: {
+          message: 'Hello world!'
+        } /* message という名前のデータを定義する */
+      })
+    </script>
 
     <div id="app-2">
-      <input type="text" v-model="message">
+      <input type="text" v-model="message" placeholder="HELLO">
       <div class="error" v-if="error.require">必須項目です。</div>
       <div class="error" v-if="error.tooLong">長すぎます。</div>
     </div>
@@ -34,19 +38,25 @@
       <span v-if="seen">Now you see me</span>
     </div>
 
-    <div id="app-103">
-      <input type="checkbox" @click="change" checked>
-      <span v-show="block">Hello!</span>
-    </div>
-    
     <div id="app-4">
-  <ol>
-    <li v-for="todo in todos">
-      {{ todo.text }}
-    </li>
-  </ol>
-</div>
+      <label for="test">
+      <input type="checkbox" id="test" @click="change">
+      <span>vueでアコーディオン</span>
+      </label>
+      <div v-show="block">Hello!</div>
+    </div>
+
+    <div id="app-5">
+      <ol>
+        <li v-for="color in colorList">
+          {{ color }}
+        </li>
+      </ol>
+    </div>
   </div>
+  <!-- Vue.js を読み込む -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/test.js"></script>
 </body>
 
 </html>

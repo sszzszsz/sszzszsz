@@ -1,18 +1,31 @@
-
 #app-2 input {
   display: block;
   border: 1px solid #ddd;
   padding: 5px;
   background: #fff;
 }
+
 #app-2 .error {
   color: red;
 }
-#app-103 input[type="checkbox"] {
-  display: inline-block;
+
+#app-4 {
+  margin-top: 50px;
+}
+
+#app-4 label {
+  display: block;
+  width: 50%;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 3px;
   border: 1px solid #ddd;
-  padding: 5px;
-  background: #fff;
-  width: 10px;
-  height: 10px;
+}
+
+#app-4 label:hover {
+  background: #eee;
+}
+
+#app-4 input[type="checkbox"] {
+  display: none;
 }

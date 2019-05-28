@@ -29,14 +29,19 @@ var app3 = new Vue({
   }
 })
 
-var app103 = new Vue({
-  el: '#app-103',
+var app4 = new Vue({
+  el: '#app-4',
   data: {
-    block: true
+    block: false
   },
   methods: {
     change: function(e) {
       this.block = e.target.checked
     }
   }
+})
+
+var app5 = new Vue({
+  el: '#app-5',
+  data: { colorList: [ 'Red', 'Green', 'Blue' ] }
 })
